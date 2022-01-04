@@ -28,9 +28,9 @@
 		}]
 	}],
 	"globalStyle": {
-		"navigationBarBackgroundColor": "#FFFFFF",
-		"navigationBarTitleText": "优享购物",
-		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#000000",
+		"navigationBarTitleText": "优享购",
+		"navigationBarTextStyle": "white",
 		"backgroundColor": "#FFFFFF",
 		"app-plus": {
 			"background": "#efeff4"
