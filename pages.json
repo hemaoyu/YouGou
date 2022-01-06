@@ -25,11 +25,15 @@
 			"path": "goods_list/goods_list",
 			"style": {}
 
+		}, {
+			"path": "search/search",
+			"style": {}
+
 		}]
 	}],
 	"globalStyle": {
-		"navigationBarBackgroundColor": "#000000",
-		"navigationBarTitleText": "优享购",
+		"navigationBarBackgroundColor": "#137AFA",
+		"navigationBarTitleText": "快享优购",
 		"navigationBarTextStyle": "white",
 		"backgroundColor": "#FFFFFF",
 		"app-plus": {
@@ -37,7 +41,7 @@
 		}
 	},
 	"tabBar": {
-		"selectedColor": "#c00000",
+		"selectedColor": "#137AFA",
 		"list": [{
 				"pagePath": "pages/home/home",
 				"text": "首页",

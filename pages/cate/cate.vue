@@ -1,10 +1,14 @@
 <template>
 	<view>
+		<!-- 使用自定义搜索组件 -->
+		<my-search @click="gotoSearch"></my-search>
+		
 		<view class="scroll-view-container">
 			<!-- 左侧滑动区 -->
 			<scroll-view
 				class="left-scroll-view"
 				scroll-y="true"
+				:show-scrollbar="false"
 				:style="{ height: wh + 'px' }"
 			>
 				<block v-for="(item, index) in cateList" :key="index">
@@ -22,7 +26,8 @@
 			<!-- 右侧滑动区 -->
 			<scroll-view
 				:scroll-top="scrollTop"
-				scroll-y="true"
+				:scroll-y="true"
+				:show-scrollbar="false"
 				:style="{ height: wh + 'px' }"
 			>
 				<view
@@ -89,14 +94,19 @@ export default {
 
 			// 为首次  加载二级分类进行赋值
 			this.cateLevel2 = res.message[0].children;
-		}
+		},
+	gotoSearch(){
+		uni.navigateTo({
+			url: "/subpkg/search/search"
+		})
+	},
 	},
 	computed: {
 		// 当前设备可用高度
 		wh() {
-			return uni.getSystemInfoSync().windowHeight;
+			return uni.getSystemInfoSync().windowHeight - 50;
 		}
-	}
+	},
 };
 </script>
 
