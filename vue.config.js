@@ -7,7 +7,7 @@ module.exports = {
 			// 代理段
 			"/uinav":{
 				// 代理到地址
-				target:"https://www.uinav.com/api/public/v1",
+				target:"https://www.uinav.com",
 				changeOrigin: true,
 				secure:true,
 				pathRewrite:{

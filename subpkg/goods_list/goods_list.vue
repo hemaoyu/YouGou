@@ -61,7 +61,7 @@ export default {
 		})
 		if(this.isLoading) return
 		// 让页码自增
-		this.queryObj.pagenum++
+		this.queryObj.pagenum+=1
 		this.getGoodsList()
 	},
 	onPullDownRefresh() {

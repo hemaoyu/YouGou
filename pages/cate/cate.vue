@@ -43,7 +43,7 @@
 						<view
 							class="cate-lv3-item"
 							v-for="(item3, index3) in item2.children"
-							:key="item3"
+							:key="index3"
 							@click="gotoGoodsList(item3)"
 						>
 							<image :src="item3.cat_icon"></image>

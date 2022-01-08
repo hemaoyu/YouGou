@@ -8,9 +8,13 @@ import {
 } from '@escook/request-miniprogram'
 
 uni.$http = $http
-
-// 请求根路径
+// #ifdef H5
+$http.baseUrl = '/uinav'
+// #endif
+// #ifndef H5
 $http.baseUrl = 'https://www.uinav.com'
+// #endif
+// 请求根路径
 
 // 请求开始之前做一些事情
 $http.beforeRequest = function(options) {
