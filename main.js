@@ -1,20 +1,18 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
-
+import store from 'store/store.js'
 // 导入网络请求的包
-import {
-	$http
-} from '@escook/request-miniprogram'
+import { $http } from '@escook/request-miniprogram'
 
 uni.$http = $http
+// 请求根路径
 // #ifdef H5
 $http.baseUrl = '/uinav'
 // #endif
 // #ifndef H5
 $http.baseUrl = 'https://www.uinav.com'
 // #endif
-// 请求根路径
 
 // 请求开始之前做一些事情
 $http.beforeRequest = function(options) {
@@ -44,7 +42,8 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-	...App
+	...App,
+	store
 })
 app.$mount()
 // #endif

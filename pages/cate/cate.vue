@@ -2,7 +2,7 @@
 	<view>
 		<!-- 使用自定义搜索组件 -->
 		<my-search @click="gotoSearch"></my-search>
-		
+
 		<view class="scroll-view-container">
 			<!-- 左侧滑动区 -->
 			<scroll-view
@@ -57,7 +57,9 @@
 </template>
 
 <script>
+import badgeMix from '../../mixins/tabbar-badge.js';
 export default {
+	mixins: [badgeMix],
 	data() {
 		return {
 			cateList: [],
@@ -72,10 +74,10 @@ export default {
 	},
 	methods: {
 		// 跳转到商品详情页面
-		gotoGoodsList(item){
+		gotoGoodsList(item) {
 			uni.navigateTo({
-				url:'/subpkg/goods_list/goods_list?cid=' + item.cat_id
-			})
+				url: '/subpkg/goods_list/goods_list?cid=' + item.cat_id
+			});
 		},
 		// 点击切换样式
 		activeChanged(i) {
@@ -95,18 +97,18 @@ export default {
 			// 为首次  加载二级分类进行赋值
 			this.cateLevel2 = res.message[0].children;
 		},
-	gotoSearch(){
-		uni.navigateTo({
-			url: "/subpkg/search/search"
-		})
-	},
+		gotoSearch() {
+			uni.navigateTo({
+				url: '/subpkg/search/search'
+			});
+		}
 	},
 	computed: {
 		// 当前设备可用高度
 		wh() {
 			return uni.getSystemInfoSync().windowHeight - 50;
 		}
-	},
+	}
 };
 </script>
 
