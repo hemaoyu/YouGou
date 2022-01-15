@@ -20,6 +20,14 @@ $http.beforeRequest = function(options) {
 	uni.showLoading({
 		title: '数据加载中...'
 	});
+	// 判断当前请求是否是有token权限限制的接口,判断请求地址是否有'/my'的字段,如果包含了/my,indexOf返回-1
+	if(options.url.indexOf('/my/') !== -1){
+		// 请求头添加token字段
+		options.header = {
+			Authorization: store.state.m_user.token
+		}
+	}
+	// console.log(store.state.m_user.token);
 }
 
 // 请求完成之后做一些事情

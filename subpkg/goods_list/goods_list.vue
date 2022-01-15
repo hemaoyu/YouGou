@@ -42,7 +42,7 @@ export default {
 			// 关闭节流阀
 			this.isLoading = false
 			cb && cb()
-			if (res.meta.status !== 200) return uni.$showMsg();
+			if (res.meta.status !== 200) return uni.$showMsg('数据加载失败,请稍后重试!');
 			this.goodsList = [...this.goodsList,...res.message.goods]
 			this.total = res.message.total;
 		},

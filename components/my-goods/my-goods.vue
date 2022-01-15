@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view  v-if="goods">
 		<view class="goods-item">
 			<!-- 左侧 -->
 			<view class="goods-item-left">

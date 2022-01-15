@@ -49,12 +49,21 @@ export default {
 	methods: {
 		...mapMutations('m_user', ['updateAddress']),
 		// 选择收货地址
-		chooseAddress() {
-			uni.chooseAddress({
-				success: res => {
-					this.updateAddress(res);
-				}
-			});
+		async chooseAddress() {
+			// 1. 调用小程序提供的 chooseAddress() 方法，即可使用选择收货地址的功能
+			  //    返回值是一个数组：第1项为错误对象；第2项为成功之后的收货地址对象
+			  const [err, succ] = await uni.chooseAddress().catch(err => err)
+			
+			  // 2. 用户成功的选择了收货地址
+			  if (succ && succ.errMsg === 'chooseAddress:ok') {
+			    // 更新 vuex 中的收货地址
+			    this.updateAddress(succ)
+			  }
+			
+			  // 3. 用户没有授权
+			  if (err && err.errMsg === 'chooseAddress:fail auth deny') {
+			    this.reAuth() // 调用 this.reAuth() 方法，向用户重新发起授权申请
+			  }
 		}
 	},
 	computed: {

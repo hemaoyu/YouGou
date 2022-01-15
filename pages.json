@@ -13,7 +13,9 @@
 
 	}, {
 		"path": "pages/My/My",
-		"style": {}
+		"style": {
+			"backgroundColor":"#FFFFFF"
+		}
 
 	}],
 	"subPackages": [{
@@ -38,10 +40,10 @@
 	"globalStyle": {
 		"navigationBarBackgroundColor": "#137AFA",
 		"navigationBarTitleText": "快享优购",
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "#ffffff",
 		"backgroundColor": "#FFFFFF",
 		"app-plus": {
-			"background": "#efeff4"
+			"background": "#ffffff"
 		}
 	},
 	"tabBar": {
