@@ -13,9 +13,7 @@
 
 	}, {
 		"path": "pages/My/My",
-		"style": {
-			"backgroundColor":"#FFFFFF"
-		}
+		"style": {}
 
 	}],
 	"subPackages": [{
@@ -41,7 +39,7 @@
 		"navigationBarBackgroundColor": "#137AFA",
 		"navigationBarTitleText": "快享优购",
 		"navigationBarTextStyle": "#ffffff",
-		"backgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#ffffff"
 		}

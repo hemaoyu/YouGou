@@ -20,8 +20,12 @@
 			<view class="goods-info-body">
 				<view class="goods-name">{{ goods_info.goods_name }}</view>
 				<view class="favi">
-					<uni-icons type="star" size="18" color="gray"></uni-icons>
-					<text>收藏</text>
+						<uni-icons
+							type="star"
+							size="18"
+							color="gray"
+						></uni-icons>
+						<text>收藏</text>
 				</view>
 			</view>
 			<!-- 运费 -->
@@ -47,7 +51,17 @@ import { mapState, mapMutations, mapGetters } from 'vuex';
 export default {
 	computed: {
 		...mapState('m_cart', []),
-		...mapGetters('m_cart', ['total'])
+		...mapGetters('m_cart', ['total']),
+		goods(){
+			return {
+					goods_id: this.goods_info.goods_id, // 商品的Id
+					goods_name: this.goods_info.goods_name, // 商品的名称
+					goods_price: this.goods_info.goods_price, // 商品的价格
+					goods_count: 1, // 商品的数量
+					goods_small_logo: this.goods_info.goods_small_logo, // 商品的图片
+					goods_state: true // 商品的勾选状态
+				};
+		}
 	},
 	watch: {
 		// total(newVal) {
@@ -56,14 +70,14 @@ export default {
 		// 		findResult.info = newVal
 		// 	}
 		// }
-		total:{
-			handler(newVal){
-				const findResult = this.options.find((x) => x.text === '购物车')
-					if(findResult){
-						findResult.info = newVal
-					}
+		total: {
+			handler(newVal) {
+				const findResult = this.options.find(x => x.text === '购物车');
+				if (findResult) {
+					findResult.info = newVal;
+				}
 			},
-			immediate:true
+			immediate: true
 		}
 	},
 	data() {
@@ -91,28 +105,29 @@ export default {
 					backgroundColor: '#ffa200',
 					color: '#fff'
 				}
-			]
+			],
 		};
 	},
 	onLoad(options) {
 		const goods_id = options.goods_id;
 		this.getGoodsDetail(goods_id);
+		this.collect = this.collectStatus
 	},
 	methods: {
 		buttonClick(e) {
 			if (e.content.text === '加入购物车') {
 				// 组织商品信息对象
-				const goods = {
-					goods_id: this.goods_info.goods_id, // 商品的Id
-					goods_name: this.goods_info.goods_name, // 商品的名称
-					goods_price: this.goods_info.goods_price, // 商品的价格
-					goods_count: 1, // 商品的数量
-					goods_small_logo: this.goods_info.goods_small_logo, // 商品的图片
-					goods_state: true // 商品的勾选状态
-				};
+				// const goods = {
+				// 	goods_id: this.goods_info.goods_id, // 商品的Id
+				// 	goods_name: this.goods_info.goods_name, // 商品的名称
+				// 	goods_price: this.goods_info.goods_price, // 商品的价格
+				// 	goods_count: 1, // 商品的数量
+				// 	goods_small_logo: this.goods_info.goods_small_logo, // 商品的图片
+				// 	goods_state: true // 商品的勾选状态
+				// };
 
 				// 调用addToCart
-				this.addToCart(goods)
+				this.addToCart(this.goods);
 			}
 		},
 		...mapMutations('m_cart', ['addToCart']),

@@ -122,7 +122,7 @@ export default {
 		display: block;
 		width: 100%;
 		height: 80rpx;
-		background-color: #f8f8f8;
+		background-color: #F5F5F5;
 		position: absolute;
 		bottom: 0;
 		left: 0;

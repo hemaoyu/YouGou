@@ -6,7 +6,7 @@ export default {
 		token: uni.getStorageSync('token') || '',
 		userinfo: JSON.parse(uni.getStorageSync('userinfo') || '{}'),
 		// 登录后的重定向
-		redirectInfo:null
+		redirectInfo:null,
 	}),
 
 	mutations: {
